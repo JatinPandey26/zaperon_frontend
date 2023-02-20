@@ -8,7 +8,7 @@ export const registerUser = (email, password) => async (dispatch) => {
     if (!email || !password) {
       return;
     }
-    console.log(email, password);
+
     dispatch({
       type: "registerRequest",
     });
@@ -30,10 +30,7 @@ export const registerUser = (email, password) => async (dispatch) => {
       type: "registerRequestSuccess",
       payload: data,
     });
-
-    console.log(data);
   } catch (error) {
-    console.log(error);
     dispatch({
       type: "registerRequestError",
       payload: "error",
@@ -57,10 +54,7 @@ export function getMyProfile() {
         type: "loadUserSuccess",
         payload: data,
       });
-
-      console.log(data);
     } catch (error) {
-      console.log(error);
       dispatch({
         type: "loadUserFail",
         payload: error.response.data.message,
