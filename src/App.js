@@ -8,7 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const dispatch = useDispatch();
-  const { user, loading, error, isAuthenticated, message } = useSelector(
+  const { loading, error, isAuthenticated, message } = useSelector(
     (state) => state.user
   );
   useEffect(() => {
@@ -27,7 +27,8 @@ function App() {
 
   return (
     <div className="App">
-      {isAuthenticated ? <UserPage isLoading = {loading} /> : <AuthPage user = {user} />} <Toaster />
+      {isAuthenticated ? <UserPage isLoading={loading} /> : <AuthPage />}{" "}
+      <Toaster />
     </div>
   );
 }

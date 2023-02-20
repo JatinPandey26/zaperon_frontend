@@ -1,6 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import UserLogo from '../Assets/ic_user.png'
-const UserPage = ({ user  }) => {
+const UserPage = () => {
+    const { user } = useSelector(
+        (state) => state.user
+    );
     return (
         <div className='authFormContainer'>
 
