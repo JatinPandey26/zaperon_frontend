@@ -1,6 +1,6 @@
 import React from 'react'
 import UserLogo from '../Assets/ic_user.png'
-const UserPage = ({user}) => {
+const UserPage = ({ user }) => {
     return (
         <div className='authFormContainer'>
 
@@ -9,7 +9,7 @@ const UserPage = ({user}) => {
                     <img src={UserLogo} alt="" />
                 </div>
 
-                <h1>Welcome! {user.email.split("@")[1]} </h1>
+                <h1>Welcome! {user ? user.email.split("@")[1] : ""} </h1>
 
             </div>
 
