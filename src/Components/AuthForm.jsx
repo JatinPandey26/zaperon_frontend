@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import UserLogo from '../Assets/ic_user.png'
-import { registerUser } from '../Redux/authActions';
+import { getMyProfile, registerUser } from '../Redux/authActions';
 const AuthForm = ({ isLoading }) => {
     const [formdata, setFormData] = useState({});
     const dispatch = useDispatch();
@@ -13,10 +13,12 @@ const AuthForm = ({ isLoading }) => {
         })
     }
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
 
-        dispatch(registerUser(formdata.email, formdata.password))
+        await dispatch(registerUser(formdata.email, formdata.password))
+
+        dispatch(getMyProfile())
     }
 
     return (
@@ -34,7 +36,7 @@ const AuthForm = ({ isLoading }) => {
                     <input type="password" placeholder='Password' name="password" id="password" onChange={e => handleChange(e)} />
                 </form>
                 <h4>Forgot Password?</h4>
-                <button type='submit' onClick={submitHandler} className = {isLoading ? "loadingButton" : ""} >{isLoading ? "...Loading" : "Authenticate"}</button>
+                <button type='submit' onClick={submitHandler} className={isLoading ? "loadingButton" : ""} >{isLoading ? "...Loading" : "Authenticate"}</button>
             </div>
 
         </div>

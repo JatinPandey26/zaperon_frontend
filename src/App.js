@@ -13,9 +13,7 @@ function App() {
   );
   useEffect(() => {
     dispatch(getMyProfile());
-  }, [dispatch]);
 
-  useEffect(() => {
     if (message) {
       toast.success(message);
       dispatch({ type: "clearMessage" });

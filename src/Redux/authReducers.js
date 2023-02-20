@@ -3,21 +3,7 @@ import { createReducer } from "@reduxjs/toolkit";
 export const userReducer = createReducer(
   {},
   {
-    loginRequest: (state, action) => {
-      state.loading = true;
-    },
-    loginRequestSuccess: (state, action) => {
-      state.loading = false;
-      state.user = action.payload.user;
-      state.isAuthenticated = true;
-      state.message = action.payload.message;
-    },
-    loginRequestFailure: (state, action) => {
-      state.loading = false;
-      state.isAuthenticated = false;
-      state.error = action.payload.error;
-    },
-
+    
     registerRequest: (state, action) => {
       state.loading = true;
     },
