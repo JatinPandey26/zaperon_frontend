@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import UserLogo from '../Assets/ic_user.png'
 import { registerUser } from '../Redux/authActions';
-const AuthForm = () => {
+const AuthForm = ({ isLoading }) => {
     const [formdata, setFormData] = useState({});
     const dispatch = useDispatch();
 
@@ -34,7 +34,7 @@ const AuthForm = () => {
                     <input type="password" placeholder='Password' name="password" id="password" onChange={e => handleChange(e)} />
                 </form>
                 <h4>Forgot Password?</h4>
-                <button type='submit' onClick={submitHandler}>Sign in</button>
+                <button type='submit' onClick={submitHandler} className = {isLoading ? "loadingButton" : ""} >{isLoading ? "...Loading" : "Authenticate"}</button>
             </div>
 
         </div>

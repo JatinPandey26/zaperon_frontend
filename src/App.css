@@ -40,6 +40,11 @@
 .authForm > h4 {
   color: #003FB9;
   align-self: flex-end;
+
+}
+
+.authForm > h4:hover {
+  cursor: pointer;
 }
 
 button{
@@ -51,6 +56,15 @@ button{
   color: white;
   background-color: #003FB9;
   border-radius: 4px;
+}
+button:hover{
+  background-color: #0a3379;
+  cursor: pointer;
+}
+
+.loadingButton{
+  background: #a2a2a2;
+  color: black;
 }
 
 form {
@@ -121,6 +135,10 @@ form > input::placeholder {
   padding-right: 2rem;
   width: 50vw;
   color: #003fb9;
+}
+
+.footerRight > h4:hover{
+cursor: pointer;
 }
 
 .footerRight span {

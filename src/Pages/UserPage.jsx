@@ -1,5 +1,5 @@
 import React from 'react'
-
+import UserLogo from '../Assets/ic_user.png'
 const UserPage = ({user}) => {
     return (
         <div className='authFormContainer'>

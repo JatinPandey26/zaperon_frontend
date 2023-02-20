@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      {isAuthenticated ? <UserPage /> : <AuthPage user = {user} />} <Toaster />
+      {isAuthenticated ? <UserPage isLoading = {loading} /> : <AuthPage user = {user} />} <Toaster />
     </div>
   );
 }
