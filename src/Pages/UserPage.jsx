@@ -9,7 +9,7 @@ const UserPage = ({ user }) => {
                     <img src={UserLogo} alt="" />
                 </div>
 
-                <h1>Welcome! {user ? user.email.split("@")[1] : ""} </h1>
+                <h1>Welcome! {user ? user : ""} </h1>
 
             </div>
 

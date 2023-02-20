@@ -48,6 +48,8 @@ export function getMyProfile() {
         credentials: "include",
       });
 
+      console.log(data);
+
       dispatch({
         type: "loadUserSuccess",
         payload: data,
