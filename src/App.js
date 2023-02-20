@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import "./App.css";
+import AuthPage from "./Pages/AuthPage";
+import UserPage from "./Pages/UserPage";
+import { useDispatch, useSelector } from "react-redux";
+import { getMyProfile } from "./Redux/authActions";
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
+  const dispatch = useDispatch();
+  const { user, loading, error, isAuthenticated, message } = useSelector(
+    (state) => state.user
+  );
+  useEffect(() => {
+    dispatch(getMyProfile());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (message) {
+      toast.success(message);
+      dispatch({ type: "clearMessage" });
+    } else if (error) {
+      toast.error(error);
+      dispatch({ type: "clearError" });
+    }
+  }, [dispatch, error, message]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {isAuthenticated ? <UserPage /> : <AuthPage />} <Toaster />
     </div>
   );
 }

@@ -1,38 +1,206 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.authPage {
+  width: 90vw;
+  margin: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.authFormContainer {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.authForm {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  width: 20rem;
+}
+
+.authForm > h1 {
+  color: #0b3558;
+  font-size: 3rem;
+}
+
+.authForm > p {
+  color: #0b3558;
+}
+.authForm > h4 {
+  color: #003FB9;
+  align-self: flex-end;
+}
+
+button{
+  border:none;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
   color: white;
+  background-color: #003FB9;
+  border-radius: 4px;
 }
 
-.App-link {
-  color: #61dafb;
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+form > input {
+  width: 100%;
+  border: 1px solid #a2a2a2;
+  height: 2rem;
+  padding: 0 0.5rem;
+  border-radius: 4px;
+  outline: none; 
+}
+
+form > input::placeholder {
+  color: #a2a2a2;
+  opacity: 1;
+}
+
+.imageDiv {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 50%;
+  padding: 2rem;
+  background: #efefef;
+}
+
+.imageDiv img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.footer {
+  height: 10vh;
+  display: flex;
+
+
+}
+
+
+
+.footerLeft {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0rem 2rem;
+  gap: 0.5rem;
+  width: 50vw;
+  font-weight: 100;
+  color: #728391;
+}
+
+.footer :nth-child(1) > img {
+  height: 52px;
+  object-fit: contain;
+}
+
+.footerRight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+  padding-right: 2rem;
+  width: 50vw;
+  color: #003fb9;
+}
+
+.footerRight span {
+  color: #a2a2a2;
+}
+@media screen and (max-width:750px){
+  .footer {
+    font-size: 0.8rem;
   }
-  to {
-    transform: rotate(360deg);
+  .footer :nth-child(1) > img {
+    height: 40px;
+    object-fit: contain;
+  }
+}
+
+@media screen and (max-width:630px){
+  .footer {
+    font-size: 0.6rem;
+  }
+  .footer :nth-child(1) > img {
+    height: 30px;
+    object-fit: contain;
+  }
+}
+
+@media screen and (max-width:530px){
+  .footerRight{
+    gap: 1rem;
+    padding-right: 1rem;
+  }
+
+  .authForm{
+    width:80%;
+
+  }
+
+  .authForm h1{
+    font-size: 2.5rem;
+
+  }
+
+  .authForm p{
+    font-size: 0.9rem;
+
+  }
+}
+
+@media screen and (max-width:435px){
+  .footerRight{
+    width: 60%;
+    gap: 0.5rem;
+    padding-right: 0rem;
+  }
+  .footerLeft{
+    gap: 0.5rem;
+    padding-left: 0rem;
+
+  }
+  
+  .footer{
+    width: 100vw;
+    padding: 0rem 0.5rem;
+  }
+}
+
+@media screen and (max-width:350px){
+ 
+  .footer{
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footerLeft{
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footerRight{
+    justify-content: center;
+    width: 100%;
   }
 }
