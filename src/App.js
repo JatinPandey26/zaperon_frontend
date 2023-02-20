@@ -11,9 +11,12 @@ function App() {
   const { loading, error, isAuthenticated, message } = useSelector(
     (state) => state.user
   );
+
   useEffect(() => {
     dispatch(getMyProfile());
+  }, [dispatch]);
 
+  useEffect(() => {
     if (message) {
       toast.success(message);
       dispatch({ type: "clearMessage" });
