@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      {isAuthenticated ? <UserPage /> : <AuthPage />} <Toaster />
+      {isAuthenticated ? <UserPage /> : <AuthPage user = {user} />} <Toaster />
     </div>
   );
 }

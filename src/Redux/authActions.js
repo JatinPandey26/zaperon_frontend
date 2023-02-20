@@ -8,7 +8,6 @@ export const registerUser = (email, password) => async (dispatch) => {
     if (!email || !password) {
       return;
     }
-
     dispatch({
       type: "registerRequest",
     });
@@ -25,7 +24,6 @@ export const registerUser = (email, password) => async (dispatch) => {
         credentials: "include",
       }
     );
-
     dispatch({
       type: "registerRequestSuccess",
       payload: data,
