@@ -13,7 +13,7 @@ const UserPage = () => {
                     <img src={UserLogo} alt="" />
                 </div>
 
-                <h1>Welcome! {`${user.user}`} </h1>
+                <h1>Welcome! {`${user.username}`} </h1>
 
             </div>
 
