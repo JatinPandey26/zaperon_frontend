@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import UserLogo from '../Assets/ic_user.png'
 import { getMyProfile, registerUser } from '../Redux/authActions';
-const AuthForm = ({ isLoading }) => {
+const AuthForm = () => {
     const [formdata, setFormData] = useState({});
     const dispatch = useDispatch();
+    const { loading, error, message } = useSelector((state) => state.user);
 
     function handleChange(e) {
         setFormData({
@@ -17,8 +18,14 @@ const AuthForm = ({ isLoading }) => {
         e.preventDefault();
 
         await dispatch(registerUser(formdata.email, formdata.password))
-
-        dispatch(getMyProfile())
+        if (message) {
+            toast.success(message);
+            dispatch({ type: "clearMessage" });
+            dispatch(getMyProfile())
+        } else if (error) {
+            toast.error(error);
+            dispatch({ type: "clearError" });
+        }
     }
 
     return (
@@ -36,7 +43,7 @@ const AuthForm = ({ isLoading }) => {
                     <input type="password" placeholder='Password' name="password" id="password" onChange={e => handleChange(e)} />
                 </form>
                 <h4>Forgot Password?</h4>
-                <button type='submit' onClick={submitHandler} className={isLoading ? "loadingButton" : ""} >{isLoading ? "...Loading" : "Authenticate"}</button>
+                <button type='submit' onClick={submitHandler} className={loading ? "loadingButton" : ""} >{loading ? "...Loading" : "Authenticate"}</button>
             </div>
 
         </div>
