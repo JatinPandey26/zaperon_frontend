@@ -55,7 +55,6 @@ const AuthForm = () => {
                 <h4>Forgot Password?</h4>
                 <button type='submit' onClick={submitHandler} className={loading ? "loadingButton" : "notLoadingButton"} >{loading ? "...Loading" : "Authenticate"}</button>
             </div>
-            <Toaster />
         </div>
     )
 }
