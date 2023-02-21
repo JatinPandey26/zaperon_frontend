@@ -18,6 +18,7 @@ export const registerUser = (email, password) => async (dispatch) => {
       {
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
         },
 
         withCredentials: true,
