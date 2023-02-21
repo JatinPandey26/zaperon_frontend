@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import UserLogo from '../Assets/ic_user.png'
 import { getMyProfile, registerUser } from '../Redux/authActions';
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 
 const AuthForm = () => {
@@ -48,7 +48,7 @@ const AuthForm = () => {
                 <h4>Forgot Password?</h4>
                 <button type='submit' onClick={submitHandler} className={loading ? "loadingButton" : ""} >{loading ? "...Loading" : "Authenticate"}</button>
             </div>
-
+        <Toaster/>
         </div>
     )
 }
