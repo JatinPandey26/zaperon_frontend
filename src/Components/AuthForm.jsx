@@ -19,10 +19,11 @@ const AuthForm = () => {
         })
     }
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
 
-        dispatch(registerUser(formdata.email, formdata.password))
+        await dispatch(registerUser(formdata.email, formdata.password))
+        dispatch(getMyProfile())
 
     }
 
@@ -31,7 +32,6 @@ const AuthForm = () => {
             toast.success(message);
             console.log(loading);
             dispatch({ type: "clearMessage" });
-            dispatch(getMyProfile())
         } else if (error) {
             toast.error(error);
             dispatch({ type: "clearError" });
