@@ -8,7 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 const AuthForm = () => {
     const [formdata, setFormData] = useState({});
     const dispatch = useDispatch();
-    const { loading, error, message } = useSelector((state) => state.user);
+    const { loading } = useSelector((state) => state.user);
 
 
 
@@ -27,6 +27,7 @@ const AuthForm = () => {
         await dispatch(registerUser(formdata.email, formdata.password))
         dispatch(getMyProfile())
 
+        setFormData({})
     }
 
 
