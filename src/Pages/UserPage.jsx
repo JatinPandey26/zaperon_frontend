@@ -12,11 +12,9 @@ const UserPage = () => {
                 <div className='imageDiv'>
                     <img src={UserLogo} alt="" />
                 </div>
-
                 <h1>Welcome! {`${user.username}`} </h1>
-
+                <button type='submit' onClick={submitHandler} className={loading ? "loadingButton" : "notLoadingButton"} >{loading ? "...Loading" : "Authenticate"}</button>
             </div>
-
         </div>
     )
 }

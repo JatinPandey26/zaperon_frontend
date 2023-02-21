@@ -38,6 +38,32 @@ export const registerUser = (email, password) => async (dispatch) => {
   }
 };
 
+export function logoutUser() {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: "logoutRequest",
+      });
+
+      const { data } = await axios.get(`${server}/logout`, {
+        withCredentials: true,
+        credentials: "include",
+      });
+
+      dispatch({
+        type: "logoutRequestSuccess",
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: "logoutRequestFailure",
+        payload: error.response.data.message,
+      });
+    }
+  };
+}
+
+
 export function getMyProfile() {
   return async (dispatch) => {
     try {
