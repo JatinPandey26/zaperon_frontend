@@ -19,6 +19,8 @@ const AuthForm = () => {
         })
     }
 
+
+
     const submitHandler = async (e) => {
         e.preventDefault();
 
@@ -26,16 +28,6 @@ const AuthForm = () => {
         dispatch(getMyProfile())
 
     }
-
-    useEffect(() => {
-        if (message) {
-            toast.success(message);
-            dispatch({ type: "clearMessage" });
-        } else if (error) {
-            toast.error(error);
-            dispatch({ type: "clearError" });
-        }
-    }, [dispatch, message, error]);
 
 
     return (
