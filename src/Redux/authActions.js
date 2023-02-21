@@ -33,7 +33,7 @@ export const registerUser = (email, password) => async (dispatch) => {
     console.log(error.response.data.message);
     dispatch({
       type: "registerRequestFailure",
-      payload: error.response.data.message,
+      payload: { error: error.response.data.message },
     });
   }
 };
