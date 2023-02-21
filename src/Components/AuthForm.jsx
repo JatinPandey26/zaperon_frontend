@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import UserLogo from '../Assets/ic_user.png'
 import { getMyProfile, registerUser } from '../Redux/authActions';
-import toast, { Toaster } from "react-hot-toast";
+
 
 
 const AuthForm = () => {
