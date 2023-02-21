@@ -27,7 +27,8 @@ const AuthForm = () => {
         await dispatch(registerUser(formdata.email, formdata.password))
         dispatch(getMyProfile())
 
-        setFormData({})
+        setFormData({ email: "", password: "" })
+
     }
 
 
