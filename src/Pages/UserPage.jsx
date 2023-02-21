@@ -1,11 +1,13 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import UserLogo from '../Assets/ic_user.png'
-import { logoutUser } from '../Redux/authActions';
+import { getMyProfile, logoutUser } from '../Redux/authActions';
 const UserPage = () => {
-    const { user } = useSelector(
+    const { user, loading } = useSelector(
         (state) => state.user
     );
+    const dispatch = useDispatch();
+
     const submitHandler = async (e) => {
         e.preventDefault();
 
