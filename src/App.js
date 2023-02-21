@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      {isAuthenticated ? <UserPage isLoading={loading} /> : <AuthPage />}{" "}
+      {!loading && isAuthenticated ? <UserPage/> : <AuthPage />}{" "}
       <Toaster />
     </div>
   );
