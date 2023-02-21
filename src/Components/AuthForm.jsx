@@ -30,7 +30,6 @@ const AuthForm = () => {
     useEffect(() => {
         if (message) {
             toast.success(message);
-            console.log(loading);
             dispatch({ type: "clearMessage" });
         } else if (error) {
             toast.error(error);

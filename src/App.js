@@ -8,7 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const dispatch = useDispatch();
-  const { loading, error, isAuthenticated, message } = useSelector(
+  const { error, isAuthenticated, message } = useSelector(
     (state) => state.user
   );
 

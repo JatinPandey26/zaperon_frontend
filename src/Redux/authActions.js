@@ -24,13 +24,12 @@ export const registerUser = (email, password) => async (dispatch) => {
         credentials: "include",
       }
     );
-    console.log(data);
+
     dispatch({
       type: "registerRequestSuccess",
       payload: data,
     });
   } catch (error) {
-    console.log(error.response.data.message);
     dispatch({
       type: "registerRequestFailure",
       payload: { error: error.response.data.message },
@@ -49,8 +48,6 @@ export function getMyProfile() {
         withCredentials: true,
         credentials: "include",
       });
-
-      console.log(data);
 
       dispatch({
         type: "loadUserSuccess",
