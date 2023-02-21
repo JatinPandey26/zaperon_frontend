@@ -29,10 +29,10 @@ const AuthForm = () => {
         })
     }
 
-    const submitHandler = async (e) => {
+    const submitHandler =  (e) => {
         e.preventDefault();
 
-        await dispatch(registerUser(formdata.email, formdata.password))
+        dispatch(registerUser(formdata.email, formdata.password))
 
 
     }
