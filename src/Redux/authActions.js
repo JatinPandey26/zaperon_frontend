@@ -24,6 +24,7 @@ export const registerUser = (email, password) => async (dispatch) => {
         credentials: "include",
       }
     );
+    console.log(data);
     dispatch({
       type: "registerRequestSuccess",
       payload: data,
