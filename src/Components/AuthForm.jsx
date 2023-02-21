@@ -21,6 +21,7 @@ const AuthForm = () => {
         e.preventDefault();
 
         await dispatch(registerUser(formdata.email, formdata.password))
+        
         if (message) {
             toast.success(message);
             dispatch({ type: "clearMessage" });
