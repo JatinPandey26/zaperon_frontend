@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import UserLogo from '../Assets/ic_user.png'
 import { getMyProfile, registerUser } from '../Redux/authActions';
@@ -9,6 +9,18 @@ const AuthForm = () => {
     const [formdata, setFormData] = useState({});
     const dispatch = useDispatch();
     const { loading, error, message } = useSelector((state) => state.user);
+
+    useEffect(() => {
+        if (message) {
+            toast.success(message);
+            dispatch({ type: "clearMessage" });
+            dispatch(getMyProfile())
+        } else if (error) {
+            toast.error(error);
+            dispatch({ type: "clearError" });
+        }
+    }, [dispatch, message, error]);
+
 
     function handleChange(e) {
         setFormData({
@@ -21,15 +33,8 @@ const AuthForm = () => {
         e.preventDefault();
 
         await dispatch(registerUser(formdata.email, formdata.password))
-        
-        if (message) {
-            toast.success(message);
-            dispatch({ type: "clearMessage" });
-            dispatch(getMyProfile())
-        } else if (error) {
-            toast.error(error);
-            dispatch({ type: "clearError" });
-        }
+
+
     }
 
     return (
@@ -49,7 +54,7 @@ const AuthForm = () => {
                 <h4>Forgot Password?</h4>
                 <button type='submit' onClick={submitHandler} className={loading ? "loadingButton" : ""} >{loading ? "...Loading" : "Authenticate"}</button>
             </div>
-        <Toaster/>
+            <Toaster />
         </div>
     )
 }
