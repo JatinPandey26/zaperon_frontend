@@ -42,8 +42,8 @@ const AuthForm = () => {
                 <h1>Welcome!</h1>
                 <p>Let's connect to your workspace. <br /> Please enter your credentials to continue.</p>
                 <form action="">
-                    <input type="text" placeholder='Email Address' name='email' id='email' onChange={e => handleChange(e)} />
-                    <input type="password" placeholder='Password' name="password" id="password" onChange={e => handleChange(e)} />
+                    <input type="text" value={formdata.email} placeholder='Email Address' name='email' id='email' onChange={e => handleChange(e)} />
+                    <input type="password" value={formdata.password} placeholder='Password' name="password" id="password" onChange={e => handleChange(e)} />
                 </form>
                 <h4>Forgot Password?</h4>
                 <button type='submit' onClick={submitHandler} className={loading ? "loadingButton" : "notLoadingButton"} >{loading ? "...Loading" : "Authenticate"}</button>
