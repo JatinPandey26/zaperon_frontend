@@ -38,33 +38,33 @@
   color: #0b3558;
 }
 .authForm > h4 {
-  color: #003FB9;
+  color: #003fb9;
   align-self: flex-end;
-
 }
 
 .authForm > h4:hover {
   cursor: pointer;
 }
 
-button{
-  border:none;
+button {
+  border: none;
   outline: none;
   height: 3rem;
   width: 100%;
   font-size: 1rem;
   color: white;
-  background-color: #003FB9;
+  background-color: #003fb9;
   border-radius: 4px;
 }
-button:hover{
+button:hover {
   background-color: #0a3379;
   cursor: pointer;
 }
 
-.loadingButton{
+.loadingButton {
   background: #a2a2a2;
   color: black;
+  pointer-events: none;
 }
 
 form {
@@ -80,7 +80,7 @@ form > input {
   height: 2rem;
   padding: 0 0.5rem;
   border-radius: 4px;
-  outline: none; 
+  outline: none;
 }
 
 form > input::placeholder {
@@ -105,11 +105,7 @@ form > input::placeholder {
 .footer {
   height: 10vh;
   display: flex;
-
-
 }
-
-
 
 .footerLeft {
   display: flex;
@@ -137,14 +133,14 @@ form > input::placeholder {
   color: #003fb9;
 }
 
-.footerRight > h4:hover{
-cursor: pointer;
+.footerRight > h4:hover {
+  cursor: pointer;
 }
 
 .footerRight span {
   color: #a2a2a2;
 }
-@media screen and (max-width:750px){
+@media screen and (max-width: 750px) {
   .footer {
     font-size: 0.8rem;
   }
@@ -154,7 +150,7 @@ cursor: pointer;
   }
 }
 
-@media screen and (max-width:630px){
+@media screen and (max-width: 630px) {
   .footer {
     font-size: 0.6rem;
   }
@@ -164,60 +160,55 @@ cursor: pointer;
   }
 }
 
-@media screen and (max-width:530px){
-  .footerRight{
+@media screen and (max-width: 530px) {
+  .footerRight {
     gap: 1rem;
     padding-right: 1rem;
   }
 
-  .authForm{
-    width:80%;
-
+  .authForm {
+    width: 80%;
   }
 
-  .authForm h1{
+  .authForm h1 {
     font-size: 2.5rem;
-
   }
 
-  .authForm p{
+  .authForm p {
     font-size: 0.9rem;
-
   }
 }
 
-@media screen and (max-width:435px){
-  .footerRight{
+@media screen and (max-width: 435px) {
+  .footerRight {
     width: 60%;
     gap: 0.5rem;
     padding-right: 0rem;
   }
-  .footerLeft{
+  .footerLeft {
     gap: 0.5rem;
     padding-left: 0rem;
-
   }
-  
-  .footer{
+
+  .footer {
     width: 100vw;
     padding: 0rem 0.5rem;
   }
 }
 
-@media screen and (max-width:350px){
- 
-  .footer{
+@media screen and (max-width: 350px) {
+  .footer {
     text-align: center;
     flex-direction: column;
     align-items: center;
   }
 
-  .footerLeft{
+  .footerLeft {
     justify-content: center;
     width: 100%;
   }
 
-  .footerRight{
+  .footerRight {
     justify-content: center;
     width: 100%;
   }
