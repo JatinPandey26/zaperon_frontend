@@ -32,7 +32,7 @@ export const registerUser = (email, password) => async (dispatch) => {
   } catch (error) {
     console.log(error.response.data.message);
     dispatch({
-      type: "registerRequestError",
+      type: "registerRequestFailure",
       payload: error.response.data.message,
     });
   }
