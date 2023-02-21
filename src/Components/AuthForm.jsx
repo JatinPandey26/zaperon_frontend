@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import UserLogo from '../Assets/ic_user.png'
 import { getMyProfile, registerUser } from '../Redux/authActions';
+import toast from "react-hot-toast";
+
+
 const AuthForm = () => {
     const [formdata, setFormData] = useState({});
     const dispatch = useDispatch();
