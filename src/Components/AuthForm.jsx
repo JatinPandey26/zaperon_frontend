@@ -10,16 +10,6 @@ const AuthForm = () => {
     const dispatch = useDispatch();
     const { loading, error, message } = useSelector((state) => state.user);
 
-    useEffect(() => {
-        if (message) {
-            toast.success(message);
-            dispatch({ type: "clearMessage" });
-            dispatch(getMyProfile())
-        } else if (error) {
-            toast.error(error);
-            dispatch({ type: "clearError" });
-        }
-    }, [dispatch, message, error]);
 
 
     function handleChange(e) {
@@ -29,13 +19,25 @@ const AuthForm = () => {
         })
     }
 
-    const submitHandler =  (e) => {
+    const submitHandler = (e) => {
         e.preventDefault();
 
         dispatch(registerUser(formdata.email, formdata.password))
 
-
     }
+
+    useEffect(() => {
+        if (message) {
+            toast.success(message);
+            console.log(loading);
+            dispatch({ type: "clearMessage" });
+            dispatch(getMyProfile())
+        } else if (error) {
+            toast.error(error);
+            dispatch({ type: "clearError" });
+        }
+    }, [dispatch, message, error]);
+
 
     return (
         <div className='authFormContainer'>
@@ -52,7 +54,7 @@ const AuthForm = () => {
                     <input type="password" placeholder='Password' name="password" id="password" onChange={e => handleChange(e)} />
                 </form>
                 <h4>Forgot Password?</h4>
-                <button type='submit' onClick={submitHandler} className={loading ? "loadingButton" : ""} >{loading ? "...Loading" : "Authenticate"}</button>
+                <button type='submit' onClick={submitHandler} className={loading ? "loadingButton" : "notLoadingButton"} >{loading ? "...Loading" : "Authenticate"}</button>
             </div>
             <Toaster />
         </div>
